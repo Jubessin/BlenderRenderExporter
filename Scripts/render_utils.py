@@ -35,14 +35,17 @@ def _export(filepath):
     i = 0
     
     # Loop through keyframes.
-    while last_frame() is False:
+    while true:
         bpy.context.scene.render.filepath = filepath + str(i)
         
-        bpy.ops.render.render(write_still=True)
+        bpy.ops.render.render(write_still=true)
         
         i += 1
 
-        jump_next(True)
+        jump_next(true)
+        
+        if (last_frame() is true):
+            return
     
 def _export_render(obj, folder, prefix):
     # Jump to the first frame of the animation.
